@@ -1,0 +1,11 @@
+.product-container {
+  padding: 1rem;
+  border: 1px solid black;
+  width: fit-content;
+  max-width: 400px;
+  margin: 1rem;
+}
+
+.image {
+  width: 200px;
+}
