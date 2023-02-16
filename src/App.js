@@ -33,8 +33,8 @@ function App() {
       title === ""
         ? true
         : String(product.title)
-            .toLowerCase()
-            .includes(title.toLowerCase().trim())
+          .toLowerCase()
+          .includes(title.toLowerCase().trim())
     );
     return filtered;
   }
