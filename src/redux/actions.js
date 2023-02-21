@@ -17,3 +17,12 @@ export function completeTodo(id) {
     },
   };
 }
+
+export function removeTodo(id) {
+  return {
+    type: "REMOVE_TODO",
+    payload: {
+      id,
+    },
+  };
+}

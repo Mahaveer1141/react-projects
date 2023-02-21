@@ -15,6 +15,9 @@ function todos(state = [], action) {
         todo.id !== action.payload.id ? todo : { ...todo, isCompleted: true }
       );
 
+    case "REMOVE_TODO":
+      return state.filter((todo) => todo.id !== action.payload.id);
+
     default:
       return state;
   }

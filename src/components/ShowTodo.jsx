@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { completeTodo } from "../redux/actions";
+import { completeTodo, removeTodo } from "../redux/actions";
 
 function ShowTodo() {
   const todoLists = useSelector((state) => state);
@@ -8,10 +8,6 @@ function ShowTodo() {
 
   const dispatch = useDispatch();
 
-  function handleClick(id) {
-    dispatch(completeTodo(id));
-  }
-
   return (
     <div>
       <h1>Pending Todo</h1>
@@ -19,7 +15,12 @@ function ShowTodo() {
         {pendingList.map((todo) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
-            <button onClick={() => handleClick(todo.id)}>complete</button>
+            <button onClick={() => dispatch(completeTodo(todo.id))}>
+              complete
+            </button>
+            <button onClick={() => dispatch(removeTodo(todo.id))}>
+              remove
+            </button>
           </li>
         ))}
       </ul>
@@ -27,7 +28,10 @@ function ShowTodo() {
       <ul>
         {completedList.map((todo) => (
           <li key={todo.id}>
-            <p>{todo.title}</p>
+            <span>{todo.title}</span>
+            <button onClick={() => dispatch(removeTodo(todo.id))}>
+              remove
+            </button>
           </li>
         ))}
       </ul>
